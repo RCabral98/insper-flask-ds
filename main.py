@@ -88,5 +88,14 @@ def icalcweb(x):
 def icatfact():
     return insperds.catfact()
 
+@app.route('/num/<a>/<b>')
+def num(a, b):
+    af = float(a)
+    bf = float(b)
+    if af % 2 == 0:
+        return str(af**bf)
+    else:
+        return str(af-bf)
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
